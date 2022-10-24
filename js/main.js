@@ -171,7 +171,7 @@ mood.addEventListener("click", toggleTheme);
 let items = document.querySelectorAll("ul li");
 let filter = document.querySelector(".parent");
 let filterBtn = document.querySelector(".parent ion-icon");
-filterBtn.onclick = () => {
+filter.onclick = () => {
   filter.classList.toggle("active");
   if (filter.classList.contains("active")) {
     filterBtn.setAttribute("name", "chevron-down-outline");

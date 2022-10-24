@@ -85,6 +85,7 @@ section {
                 padding: 0px 10px;
                 font-size: 14px;
                 color: var(--text);
+                cursor: pointer;
                 ion-icon {
                     cursor: pointer;
                     @include transition;

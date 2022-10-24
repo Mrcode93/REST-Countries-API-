@@ -180,6 +180,7 @@ section .search .filters .parent {
   padding: 0px 10px;
   font-size: 14px;
   color: var(--text);
+  cursor: pointer;
 }
 section .search .filters .parent ion-icon {
   cursor: pointer;
