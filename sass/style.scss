@@ -1,0 +1,487 @@
+@use './globals.scss' as *;
+header {
+    @include transition;
+    @include padding;
+    @include flex;
+    width: 100%;
+    height: 80px;
+    justify-content: space-between;
+    background-color: var( --elements);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    h1 {
+        color: var(--text);
+        @include transition;
+        font-weight: 800;
+    }
+    .mood {
+        @include flex;
+        cursor: pointer;
+        ion-icon {
+            margin-right: 10px;
+            color: var(--text);
+            font-weight: 800;
+            @include transition;
+        }
+        p {
+            @include transition;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 16px
+        }
+    }
+}
+
+section {
+    width: 100%;
+    @include padding;
+    .search {
+        @include transition;
+        @include flex;
+        width: 100%;
+        height: 120px;
+        justify-content: space-between;
+        .input {
+            width: 400px;
+            background-color: var( --elements);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.109);
+            height: 50px;
+            @include radius;
+            @include flex;
+            justify-content: space-between;
+            padding: 0px 20px;
+            input {
+                width: 100%;
+                height: 100%;
+                border: none;
+                margin-left: 15px;
+                background-color: var(--elements);
+                color: var(--text);
+                outline: none;
+                &::placeholder {
+                    // color: var(--text);
+                    font-size: 14px;
+                }
+            }
+            ion-icon {
+                color: var(--text);
+                font-weight: 800;
+                font-size: 24px;
+            }
+        }
+        .filters {
+            @include transition;
+            width: 200px;
+            background-color: var(--elements);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.109);
+            height: 50px;
+            @include radius;
+            @include flex;
+            .parent {
+                @include transition;
+                position: relative;
+                @include flex;
+                width: 100%;
+                justify-content: space-between;
+                padding: 0px 10px;
+                font-size: 14px;
+                color: var(--text);
+                ion-icon {
+                    cursor: pointer;
+                    @include transition;
+                }
+                ul {
+                    z-index: 10;
+                    @include transition;
+                    @include radius;
+                    @include flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    width: 200px;
+                    height: 0%;
+                    opacity: 0;
+                    position: absolute;
+                    background-color: var(--elements);
+                    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.109);
+                    top: 50px;
+                    left: 50%;
+                    padding: 15px;
+                    -moz-transform: translateX(-50%);
+                    -ms-transform: translate(-50%);
+                    -o-transform: translate(-50%);
+                    -webkit-transform: translate(-50%);
+                    li {
+                        cursor: pointer;
+                        @include transition;
+                        @include flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        padding: 0px 10px;
+                        font-size: 14px;
+                        color: var(--text);
+                        list-style-type: none;
+                        font-size: 16px;
+                        font-weight: 600;
+                        &:hover {
+                            transform: translateX(15px);
+                            -webkit-transform: translateX(15px);
+                            -moz-transform: translateX(15px);
+                            -ms-transform: translateX(15px);
+                            -o-transform: translateX(15px);
+                            -webkit-transform: translateX;
+                        }
+                    }
+                }
+                &.active {
+                    ul {
+                        height: 210px;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.boxes {
+    width: 100%;
+    @include grid;
+    @include transition;
+    .box {
+        height: 400px;
+        background-color: var(--elements);
+        @include radius;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.06);
+        @include flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        overflow: hidden;
+        .flag {
+            height: 50%;
+            width: 100%;
+            @include flex;
+            img {
+                width: 100%;
+                height: 100%
+            }
+        }
+        .info {
+            height: 50%;
+            width: 100%;
+            @include flex;
+            padding: 15px;
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: flex-start;
+            .name {
+                font-size: 20px;
+                color: var(--text);
+                font-weight: 800;
+                margin-bottom: 30px;
+            }
+            .description {
+                p {
+                    font-size: 14px;
+                    color: var(--text);
+                    font-weight: 800;
+                    span {
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.second {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    @include transition;
+    @include padding;
+    .fullData {
+        @include flex;
+        flex-direction: column;
+        @include transition;
+        width: 100%;
+        height: 500px;
+        .head {
+            width: 100px;
+            height: 30px;
+            background-color: var(--elements);
+            color: var(--text);
+            font-size: 16px;
+            font-weight: 600;
+            @include flex;
+            @include radius;
+            align-self: flex-start;
+            margin-bottom: 50px;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.06);
+        }
+        .body {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
+            gap: 40px;
+            height: 300px;
+            .flag {
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .information {
+                @include flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                h2 {
+                    color: var(--text);
+                    font-weight: 600;
+                }
+                .infos {
+                    @include flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 30px;
+                    p {
+                        width: 250px;
+                        height: 100%;
+                        align-items: flex-start;
+                        font-size: 14px;
+                        color: var(--text);
+                        font-weight: 800;
+                        span {
+                            font-weight: 300;
+                            width: 70px;
+                        }
+                    }
+                }
+                .borders {
+                    @include flex;
+                    align-items: flex-start;
+                    p {
+                        font-size: 14px;
+                        color: var(--text);
+                        font-weight: 800;
+                        span {
+                            font-weight: 300;
+                            padding: 5px 10px;
+                            background-color: var(--elements);
+                            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.06);
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.active {
+    .main {
+        display: none;
+    }
+    .second {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    section,
+    header {
+        @include mobile-padding
+    }
+    header {
+        h1 {
+            font-size: 20px
+        }
+    }
+    .boxes {
+        width: 100%;
+        @include grid;
+        @include transition;
+        // height: 80px;
+    }
+    .main {
+        width: 100%;
+        .search {
+            @include transition;
+            @include flex;
+            margin: 20px 0;
+            flex-direction: column;
+            width: 100%;
+            height: 120px;
+            justify-content: space-between;
+            align-items: flex-start;
+            .input {
+                @include flex;
+                width: 100%;
+            }
+            .filters {
+                @include radius;
+                @include flex;
+                width: 60%;
+                justify-content: flex-start;
+                .parent {
+                    @include transition;
+                    position: relative;
+                    @include flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    padding: 0px 10px;
+                    font-size: 14px;
+                    color: var(--text);
+                    ion-icon {
+                        cursor: pointer;
+                        @include transition;
+                    }
+                    ul {
+                        z-index: 10;
+                        @include transition;
+                        @include radius;
+                        @include flex;
+                        justify-content: space-between;
+                        flex-direction: column;
+                        width: 200px;
+                        height: 0%;
+                        opacity: 0;
+                        position: absolute;
+                        background-color: var(--elements);
+                        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.109);
+                        top: 50px;
+                        left: 50%;
+                        padding: 15px;
+                        -moz-transform: translateX(-50%);
+                        -ms-transform: translate(-50%);
+                        -o-transform: translate(-50%);
+                        -webkit-transform: translate(-50%);
+                        li {
+                            cursor: pointer;
+                            @include transition;
+                            @include flex;
+                            width: 100%;
+                            justify-content: space-between;
+                            padding: 0px 10px;
+                            font-size: 14px;
+                            color: var(--text);
+                            list-style-type: none;
+                            font-size: 16px;
+                            font-weight: 600;
+                            &:hover {
+                                transform: translateX(15px);
+                                -webkit-transform: translateX(15px);
+                                -moz-transform: translateX(15px);
+                                -ms-transform: translateX(15px);
+                                -o-transform: translateX(15px);
+                                -webkit-transform: translateX;
+                            }
+                        }
+                    }
+                    &.active {
+                        ul {
+                            height: 210px;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .second {
+        width: 100%;
+        height: 100vh;
+        display: none;
+        @include transition;
+        justify-content: flex-start;
+        padding-top: 40px;
+        @include mobile-padding;
+        .fullData {
+            height: 100%;
+            height: 100vh;
+            @include flex;
+            flex-direction: column;
+            @include transition;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .head {
+                width: 100px;
+                height: 30px;
+                background-color: var(--elements);
+                color: var(--text);
+                font-size: 16px;
+                font-weight: 600;
+                @include flex;
+                @include radius;
+                align-self: flex-start;
+                margin-bottom: 10px;
+                cursor: pointer;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.06);
+            }
+            .body {
+                width: 100%;
+                height: 100%;
+                @include flex;
+                flex-direction: column;
+                .flag {
+                    height: 30%;
+                    width: 100%;
+                    img {
+                        max-width: 100%;
+                    }
+                }
+                .information {
+                    width: 100%;
+                    height: 70%;
+                    @include flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    // justify-content: space-between;
+                    h2 {
+                        color: var(--text);
+                        font-weight: 600;
+                        height: 40px;
+                        width: 100%;
+                    }
+                    .infos {
+                        @include flex;
+                        margin-top: 30px;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        width: 100%;
+                        height: 60%;
+                        p {
+                            width: 100%;
+                            align-items: flex-start;
+                            font-size: 14px;
+                            color: var(--text);
+                            font-weight: 800;
+                            span {
+                                font-weight: 300;
+                                width: 70px;
+                            }
+                        }
+                    }
+                    .borders {
+                        width: 100%;
+                        @include flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        p {
+                            font-size: 14px;
+                            color: var(--text);
+                            font-weight: 800;
+                            span {
+                                font-weight: 300;
+                                background-color: var(--elements);
+                                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.06);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
